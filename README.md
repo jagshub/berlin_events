@@ -1,24 +1,27 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* Install redis
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
+    `* brew install redis
+        /opt/homebrew/opt/redis/bin/redis-server /opt/homebrew/etc/redis.conf
+        brew services restart redis`
 
 * Database creation
+```
+    rails db:create
+    rails db:seed
+    rails db:migrate
+```
 
-* Database initialization
+* Start sidekiq
+```
+sidekiq
+```
 
-* How to run the test suite
+* Populate Events using console
+```azure
 
-* Services (job queues, cache servers, search engines, etc.)
+scraper = ScrapingService.new
+scraper.perform
 
-* Deployment instructions
-
-* ...
+```
