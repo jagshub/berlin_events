@@ -26,6 +26,13 @@ gem 'jbuilder', '~> 2.7'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 
+gem 'nokogiri'
+gem 'bootstrap'
+gem 'jquery-rails'
+gem 'sidekiq'
+gem 'sidekiq-scheduler'
+gem 'kaminari'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -39,6 +46,21 @@ group :development do
   gem 'rack-mini-profiler', '~> 2.0'
   gem 'listen', '~> 3.3'
 end
+
+group :test do
+  # Adds support for Capybara system testing and selenium driver
+  gem 'selenium-webdriver'
+  # Easy installation and use of chromedriver to run system tests with Chrome
+  gem 'chromedriver-helper'
+  gem 'shoulda-matchers'
+  gem 'database_cleaner'
+  gem 'faker'
+  gem 'simplecov', :require => false
+  gem 'simplecov-rcov'
+  gem 'phantomjs'
+  gem 'poltergeist'
+end
+
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
