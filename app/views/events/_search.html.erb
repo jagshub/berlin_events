@@ -1,0 +1,42 @@
+<div class='container-fluid bg-light'>
+  <%= form_tag events_path, class: 'text-center', method: :get do %>
+    <div class='row'>
+      <div class='col-sm-3'>
+        <div class='form-group'>
+          <label for='title'>Title</label>
+          <%= text_field_tag :title, params[:title], class: 'form-control', placeholder: 'Title' %>
+        </div>
+      </div>
+
+      <div class='col-sm-3'>
+        <div class='form-group'>
+          <label for='web_source'>
+            Web Source 
+          </label>
+          <%= select_tag :web_source_id, options_for_select(@web_sources.collect { |ws| [ws.title, ws.id] }, params[:web_source_id]), include_blank: 'Select a Web Source', class: 'form-control' %>
+        </div>
+      </div>
+
+      <div class='col-sm-3'>
+        <div class='form-group'>
+          <label for='start_date'>
+            Start Date 
+          </label>
+          <%= date_field_tag :start_date, params[:start_date], class: 'form-control' %>
+        </div>
+      </div>
+
+      <div class='col-sm-3'>
+        <div class='form-group'>
+          <label for='end_date'>
+            End Date
+          </label>
+          <%= date_field_tag :end_date, params[:end_date], class: 'form-control' %>
+        </div>
+      </div>
+    </div>
+    <%= submit_tag 'Search', class: 'btn btn-primary' %>
+  <% end %>
+</div>
+
+<div class='clearfix'></div>
